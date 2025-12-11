@@ -1,6 +1,6 @@
 # 📝 Note App - Modern Web-Based Note Taking Application
 
-![Note App Screenshot](https://img.shields.io/badge/NoteApp-v1.0-blue)
+![Note App Screenshot](ss.png)
 ![License](https://img.shields.io/badge/License-MIT-green)
 ![Browser](https://img.shields.io/badge/Browser-Chrome%20|%20Firefox%20|%20Edge%20|%20Safari-lightgrey)
 

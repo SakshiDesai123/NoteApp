@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Note App | Write Your Thoughts</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="container">
+        <!-- Header -->
+        <header class="header">
+            <div class="logo">
+                <i class="fas fa-sticky-note"></i>
+                <h1>Note<span>App</span></h1>
+            </div>
+            <div class="stats">
+                <div class="stat-item">
+                    <i class="fas fa-file-alt"></i>
+                    <span id="total-notes">0</span> notes
+                </div>
+                <div class="stat-item">
+                    <i class="fas fa-font"></i>
+                    <span id="total-chars">0</span> chars
+                </div>
+                <button class="theme-toggle" id="theme-toggle">
+                    <i class="fas fa-moon"></i>
+                </button>
+            </div>
+        </header>
+
+        <div class="app-content">
+            <!-- Sidebar -->
+            <aside class="sidebar">
+                <div class="search-box">
+                    <i class="fas fa-search"></i>
+                    <input type="text" id="search-input" placeholder="Search notes...">
+                </div>
+                
+                <div class="category-filter">
+                    <h3>Categories</h3>
+                    <div class="category-list">
+                        <button class="category-btn active" data-category="all">
+                            <i class="fas fa-layer-group"></i> All Notes
+                            <span class="category-count" id="count-all">0</span>
+                        </button>
+                        <button class="category-btn" data-category="personal">
+                            <i class="fas fa-user"></i> Personal
+                            <span class="category-count" id="count-personal">0</span>
+                        </button>
+                        <button class="category-btn" data-category="work">
+                            <i class="fas fa-briefcase"></i> Work
+                            <span class="category-count" id="count-work">0</span>
+                        </button>
+                        <button class="category-btn" data-category="ideas">
+                            <i class="fas fa-lightbulb"></i> Ideas
+                            <span class="category-count" id="count-ideas">0</span>
+                        </button>
+                        <button class="category-btn" data-category="important">
+                            <i class="fas fa-star"></i> Important
+                            <span class="category-count" id="count-important">0</span>
+                        </button>
+                    </div>
+                </div>
+                
+                <div class="tags-section">
+                    <h3>Tags</h3>
+                    <div class="tags-list" id="tags-list">
+                        <!-- Tags will be generated dynamically -->
+                    </div>
+                </div>
+                
+                <button class="btn-new-note" id="new-note-btn">
+                    <i class="fas fa-plus-circle"></i> New Note
+                </button>
+            </aside>
+
+            <!-- Main Content -->
+            <main class="main-content">
+                <!-- Note Editor -->
+                <div class="note-editor" id="note-editor">
+                    <div class="editor-header">
+                        <input type="text" id="note-title" placeholder="Note Title" maxlength="100">
+                        <div class="editor-actions">
+                            <button class="btn-save-note" id="save-note-btn">
+                                <i class="fas fa-save"></i> Save
+                            </button>
+                            <button class="btn-cancel" id="cancel-btn">
+                                <i class="fas fa-times"></i> Cancel
+                            </button>
+                        </div>
+                    </div>
+                    
+                    <div class="note-options">
+                        <div class="option-group">
+                            <label for="note-category">Category:</label>
+                            <select id="note-category">
+                                <option value="personal">Personal</option>
+                                <option value="work">Work</option>
+                                <option value="ideas">Ideas</option>
+                                <option value="important">Important</option>
+                            </select>
+                        </div>
+                        
+                        <div class="option-group">
+                            <label>Tags:</label>
+                            <div class="tags-input">
+                                <input type="text" id="tag-input" placeholder="Add tags...">
+                                <button class="btn-add-tag" id="add-tag-btn">
+                                    <i class="fas fa-plus"></i>
+                                </button>
+                            </div>
+                            <div class="selected-tags" id="selected-tags">
+                                <!-- Selected tags will appear here -->
+                            </div>
+                        </div>
+                        
+                        <div class="option-group">
+                            <label>Color:</label>
+                            <div class="color-options">
+                                <div class="color-option" data-color="#ffffff" style="background-color: #ffffff;"></div>
+                                <div class="color-option" data-color="#fff9c4" style="background-color: #fff9c4;"></div>
+                                <div class="color-option" data-color="#c8e6c9" style="background-color: #c8e6c9;"></div>
+                                <div class="color-option" data-color="#bbdefb" style="background-color: #bbdefb;"></div>
+                                <div class="color-option" data-color="#f8bbd0" style="background-color: #f8bbd0;"></div>
+                                <div class="color-option" data-color="#e1bee7" style="background-color: #e1bee7;"></div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="note-content-editor">
+                        <textarea id="note-content" placeholder="Start writing your note here..."></textarea>
+                        <div class="editor-footer">
+                            <div class="char-count">
+                                <span id="char-counter">0</span> characters
+                            </div>
+                            <div class="format-options">
+                                <button class="format-btn" data-format="bold"><i class="fas fa-bold"></i></button>
+                                <button class="format-btn" data-format="italic"><i class="fas fa-italic"></i></button>
+                                <button class="format-btn" data-format="underline"><i class="fas fa-underline"></i></button>
+                                <button class="format-btn" data-format="list"><i class="fas fa-list-ul"></i></button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Notes List -->
+                <div class="notes-list-container">
+                    <div class="notes-header">
+                        <h2 id="notes-title">All Notes</h2>
+                        <div class="view-options">
+                            <button class="view-btn active" id="grid-view-btn">
+                                <i class="fas fa-th-large"></i>
+                            </button>
+                            <button class="view-btn" id="list-view-btn">
+                                <i class="fas fa-list"></i>
+                            </button>
+                        </div>
+                    </div>
+                    
+                    <div class="notes-list" id="notes-list">
+                        <!-- Notes will be dynamically added here -->
+                        <div class="empty-state" id="empty-state">
+                            <i class="fas fa-sticky-note"></i>
+                            <h3>No notes yet</h3>
+                            <p>Click "New Note" to create your first note!</p>
+                        </div>
+                    </div>
+                </div>
+            </main>
+        </div>
+        
+        <!-- Footer -->
+        <footer class="footer">
+            <p>NoteApp &copy; 2025 - Your thoughts, saved forever | Copy right Sakshi Desai</p>
+            <div class="footer-actions">
+                <button id="export-btn" class="footer-btn">
+                    <i class="fas fa-download"></i> Export Notes
+                </button>
+                <button id="import-btn" class="footer-btn">
+                    <i class="fas fa-upload"></i> Import Notes
+                </button>
+                <button id="clear-btn" class="footer-btn clear">
+                    <i class="fas fa-trash"></i> Clear All
+                </button>
+            </div>
+        </footer>
+    </div>
+    
+    <!-- Import file input (hidden) -->
+    <input type="file" id="import-file" accept=".json" style="display: none;">
+    
+    <!-- Confirmation Modal -->
+    <div class="modal" id="confirmation-modal">
+        <div class="modal-content">
+            <h3>Delete Note</h3>
+            <p>Are you sure you want to delete this note? This action cannot be undone.</p>
+            <div class="modal-actions">
+                <button class="btn-cancel" id="modal-cancel">Cancel</button>
+                <button class="btn-confirm" id="modal-confirm">Delete</button>
+            </div>
+        </div>
+    </div>
+    
+    <script src="script.js"></script>
+</body>
+</html>

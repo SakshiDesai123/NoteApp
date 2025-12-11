@@ -36,50 +36,7 @@ A beautiful, feature-rich note-taking application built with pure HTML, CSS, and
 - **Import Multiple Formats**: JSON, TXT, MD, CSV support
 - **Autosave**: Changes saved automatically
 
-## 🚀 Quick Start
 
-### Method 1: Instant Use (No Download)
-Visit our [live demo](https://your-demo-link.com) to start using immediately.
-
-### Method 2: Local Installation
-1. **Download the files:**
-   ```bash
-   git clone https://github.com/yourusername/note-app.git
-   cd note-app
-   ```
-
-2. **Open in browser:**
-   - Double-click `index.html`
-   - Or use a local server:
-     ```bash
-     # Python 3
-     python -m http.server 8000
-     
-     # Node.js (if you have http-server installed)
-     npx http-server
-     ```
-
-3. **Start taking notes!**
-
-### Method 3: Browser Bookmarks
-1. Save the HTML file to your device
-2. Open it in any modern browser
-3. Create a desktop shortcut or bookmark for quick access
-
-## 📁 File Structure
-
-```
-note-app/
-├── index.html          # Main application file
-├── style.css           # All styles and themes
-├── script.js           # Application logic
-├── README.md           # This documentation
-├── LICENSE             # MIT License file
-└── assets/             # Optional assets folder
-    ├── icons/          # App icons
-    ├── screenshots/    # Documentation images
-    └── examples/       # Sample note exports
-```
 
 ## 🎯 How to Use
 
@@ -402,6 +359,6 @@ yarn add note-app
 
 ---
 
-**Made with ❤️ for note-takers everywhere.**
+
 
 *Keep your thoughts organized, one note at a time.*
